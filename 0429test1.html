@@ -18,6 +18,7 @@
             text-align: center;
             margin: 20px 0;
             color: #333;
+            font-size: 2rem; /* 標題字體大小 */
         }
 
         /* 讓 iframe 容器自適應大小 */
@@ -50,10 +51,18 @@
             text-align: center;
         }
 
+        .card h2 {
+            font-size: 1.8rem; /* 調整字體大小，使其小於標題 */
+        }
+
         /* 響應式設計 */
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.5rem;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
             }
         }
 
@@ -62,15 +71,19 @@
                 font-size: 1.2rem;
                 margin: 10px 0;
             }
+
+            .card h2 {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <h1>動畫式的高雄市村里級熱圖，透過點擊縣市中的鄉鎮再顯示65-69歲人口</h1>
     <div class="card">
         <h2>我的發現</h2>
-        <p>65-69歲人口較多的地區集中在楠梓以南的區域。</p>
+        <p>65-69歲人口較多的地區集中在楠梓以南的區域，我猜測是舊市區發展早，人口老化自然累積。</p>
     </div>
-    <h1>動畫式的高雄市村里級熱圖，透過點擊縣市中的鄉鎮再顯示65-69歲人口</h1>
     <div class="iframe-container">
         <iframe src="https://plotdb.io/v/chart/37299" allowfullscreen="true"></iframe>
     </div>
