@@ -16,6 +16,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            background-color: #f9f9f9; /* 增加背景色 */
         }
 
         h1 {
@@ -69,6 +70,14 @@
             text-align: center; /* 文字置中 */
         }
 
+        /* 分隔線樣式 */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: #ddd;
+            margin: 40px 0; /* 增加分隔線上下空間 */
+        }
+
         /* 響應式設計 */
         @media (max-width: 768px) {
             h1 {
@@ -118,6 +127,9 @@
     <div class="iframe-container">
         <iframe src="https://plotdb.io/v/chart/37299" allowfullscreen="true"></iframe>
     </div>
+
+    <!-- 分隔線 -->
+    <div class="divider"></div>
 
     <!-- 第二個區段 -->
     <h1>顯示80-84歲人口分佈</h1>
