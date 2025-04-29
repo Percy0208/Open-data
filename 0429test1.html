@@ -38,6 +38,18 @@
             border: 0;
         }
 
+        /* 卡片樣式 */
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
         /* 響應式設計 */
         @media (max-width: 768px) {
             h1 {
@@ -57,6 +69,10 @@
     <h1>動畫式的高雄市村里級熱圖，透過點擊縣市中的鄉鎮再顯示65-69歲人口</h1>
     <div class="iframe-container">
         <iframe src="https://plotdb.io/v/chart/37299" allowfullscreen="true"></iframe>
+    </div>
+    <div class="card">
+        <h2>我的發現</h2>
+        <p>65-69歲人口較多的地區集中在楠梓以南的區域。</p>
     </div>
 </body>
 </html>
