@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A1113366</title>
+    <style>
+        /* 基本樣式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+            font-size: 2rem; /* 標題字體大小 */
+        }
+
+        /* 讓 iframe 容器自適應大小 */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 的比例 */
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* 卡片樣式 */
+        .card {
+            width: 90%; /* 卡片範圍加寬 */
+            white-space: normal; /* 允許文字換行 */
+            background-color: #f5f5f5; /* 添加背景顏色 */
+            border: 1px solid #ddd; /* 添加邊框 */
+            border-radius: 8px; /* 圓角，讓外觀更柔和 */
+            padding: 20px; /* 增加內邊距 */
+            margin: 20px auto;
+            max-width: 800px; /* 最大寬度 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+            font-family: Arial, sans-serif; /* 調整字體 */
+            color: #333; /* 字體顏色 */
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 1.8rem; /* 調整字體大小，使其小於標題 */
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem; /* 調整段落字體大小 */
+            text-align: justify; /* 文字對齊 */
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
+            }
+
+            .card p {
+                font-size: 0.9rem;
+            }
+
+            .card {
+                width: 95%; /* 響應式調整卡片寬度 */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2rem;
+                margin: 10px 0;
+            }
+
+            .card h2 {
+                font-size: 1rem;
+            }
+
+            .card p {
+                font-size: 0.8rem;
+            }
+
+            .card {
+                width: 100%; /* 小螢幕下卡片全寬 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>動畫式的高雄市村里級熱圖，顯示80-84歲人口分佈</h1>
+    <div class="card">
+        <h2>我的發現</h2>
+        <p>高雄三個原住民族地區─那瑪夏區、桃源區及茂林區的80-84歲人口可說是幾乎沒有，我認為可能是原住民區人口本來就比較少，且高齡者可能外移或者過世，因此大部分這個年齡區段的高齡者還是集中在較繁榮且醫療水準較好的地區。</p>
+    </div>
+    <div class="iframe-container">
+        <iframe src="https://plotdb.io/v/chart/37345" allowfullscreen="true"></iframe>
+    </div>
+</body>
+</html>
