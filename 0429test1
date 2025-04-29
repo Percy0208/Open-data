@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌入圖表</title>
+    <style>
+        /* 基本樣式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        /* 讓 iframe 容器自適應大小 */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 的比例 */
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2rem;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>動畫式的高雄市村里級熱圖，透過點擊縣市中的鄉鎮再顯示65-69歲人口</h1>
+    <div class="iframe-container">
+        <iframe src="https://plotdb.io/v/chart/37299" allowfullscreen="true"></iframe>
+    </div>
+</body>
+</html>
