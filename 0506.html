@@ -25,12 +25,20 @@
       color: #2c3e50;
     }
 
+    .iframe-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+
     .iframe-container {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .iframe-container iframe {
@@ -43,7 +51,7 @@
     }
 
     .card {
-      background-color: white;
+      background-color: #ffffff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 25px;
@@ -54,44 +62,77 @@
       margin-top: 0;
       color: #34495e;
     }
+
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .flex-row img {
+      width: 300px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .flex-text {
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .flex-row {
+        flex-direction: column;
+      }
+
+      .flex-row img {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>高雄市65歲以上人口熱圖分析</h1>
 
-    <div class="iframe-container">
-      <iframe src="https://plotdb.io/v/chart/37458" allowfullscreen></iframe>
-    </div>
-
-    <div class="iframe-container">
-      <iframe src="https://plotdb.io/v/chart/37460" allowfullscreen></iframe>
-    </div>
-
-    <div class="card">
-      <h2>我的發現</h2>
+    <div class="iframe-card">
+      <div class="iframe-container">
+        <iframe src="https://plotdb.io/v/chart/37458" allowfullscreen></iframe>
+      </div>
       <p>
-       這兩張圖分別呈現高雄市65-79歲與80-99歲人口在村里層級的分布狀況，透過不同色階的熱點地圖視覺化人口密度，讓我們得以清楚觀察高齡人口在地理空間上的集中與差異。從圖中可以看出，高雄市的老年人口明顯呈現出「南多北少」、「都市集中」的分布趨勢，但在兩個年齡層的分布特性中，仍存在些微差異與更深層的意涵。
-        <br><br>
-        首先觀察65-79歲族群的地圖，可以看出人口相對密集的區域主要集中在高雄市的中南部，特別是鳳山區、三民區、小港區與前鎮區等市區與次市區。這些地區多屬早期開發的都市生活圈，生活機能完善、交通便利、社區發展成熟，是當年大批中壯年人口移入購屋落腳的首選，如今這批人在社會發展與生活穩定中邁入老年，因此出現了高度集中的高齡人口。而在北部山區與原住民地區如桃源、那瑪夏等地，因人口基數小，加上年輕人口外移嚴重，導致整體65-79歲人口數量極低，地圖中以最淺的顏色呈現。
-        <br><br>
-        接著看80-99歲的熱圖，整體分布雖然與65-79歲大致相似，但可以明顯感受到「人口更為集中」的現象。也就是說，雖然這個年齡層的人數自然比65-79歲少，但他們分布更偏向某些特定區域，形成所謂的「超高齡聚落」。這些區域除了原本人口基數高之外，亦可能與生活環境、醫療資源充足度、社會支持系統、甚至社區凝聚力等長壽因素密切相關。因此，我們可以合理推測，這些80歲以上人口密集的村里，或許具備成為高齡友善社區典範的潛力，亦是政策與資源投入的優先區域。相對地，某些65-79歲人口尚可觀察到的地區，在80歲以上族群中卻幾近空白，可能代表這些區域的居民壽命較短，或者過往發展較晚、人口結構仍偏年輕。
-        <br><br>
-      65-79歲的熱圖描繪出的是「即將進入高齡社會服務需求高峰」的潛在趨勢，而80-99歲的圖則直接揭示「當前最需要照顧與支持的超高齡人口分布」。這兩張圖能幫助我們理解高雄市老化的空間結構，更能作為未來銀髮族資源規劃、長照設施佈局、健康老化政策設計的重要依據。
+        65-79歲族群的地圖，可以看出人口相對密集的區域主要集中在高雄市的中南部，特別是鳳山區、三民區、小港區與前鎮區等市區與次市區。這些地區多屬早期開發的都市生活圈，生活機能完善、交通便利、社區發展成熟，是當年大批中壯年人口移入購屋落腳的首選，如今這批人在社會發展與生活穩定中邁入老年，因此出現了高度集中的高齡人口。
+        而在北部山區與原住民地區如桃源、那瑪夏等地，因人口基數小，加上年輕人口外移嚴重，導致整體65-79歲人口數量極低，地圖中以最淺的顏色呈現。
+      </p>
+    </div>
+
+    <div class="iframe-card">
+      <div class="iframe-container">
+        <iframe src="https://plotdb.io/v/chart/37460" allowfullscreen></iframe>
+      </div>
+      <p>
+        80-99歲的熱圖，整體分布雖然與65-79歲大致相似，但可以明顯感受到「人口更為集中」的現象。雖然這個年齡層的人數自然較少，但他們分布更偏向某些特定區域，形成「超高齡聚落」。這些區域可能因醫療資源、社會支持與生活條件良好而有助長壽，也可能成為高齡友善社區的示範點。
       </p>
     </div>
 
     <div class="card">
       <h2>我的行動</h2>
-      <img src="0506.webp" alt="長者交流照片" style="width: 100%; border-radius: 12px; margin-top: 20px;"/>
-      <p>
-        身為岡山區的一份子，我關注在地高齡人口，特別是：65-74歲長者：10,981人、非身心障礙或行動不便者：15,033人、行動能力稍有不便者：16,463人，其中，10,151人同時符合上述條件，具備一定行動能力，但是失智風險可能導致走失，影響安全與生活品質。<br><br>
-        退休後，長者易失去生活重心，孤獨感影響身心健康，甚至衍生安居問題。<br><br>
-        因此我想出的行動方案包括：<br>
-        1. <strong>劇本創作計畫</strong>： 鼓勵長者運用人生閱歷，撰寫個人故事，豐富生活回憶。<br>
-        2. <strong>長者友善空間</strong>： 建立社區交流平台，促進長者互動討論。<br>
-        3. <strong>青銀共創計畫</strong>： 結合年輕志工，共同發展創作內容，滿足社交需求，促進跨世代學習。
-      </p>
+      <div class="flex-row">
+        <img src="0506.webp" alt="長者交流照片">
+        <div class="flex-text">
+          <p>
+            身為岡山區的一份子，我關注在地高齡人口，特別是：65-74歲長者：10,981人、非身心障礙或行動不便者：15,033人、行動能力稍有不便者：16,463人，其中，10,151人同時符合上述條件，具備一定行動能力，但是失智風險可能導致走失，影響安全與生活品質。
+          </p>
+          <p>
+            退休後，長者易失去生活重心，孤獨感影響身心健康，甚至衍生安居問題。
+          </p>
+          <p>
+            因此我想出的行動方案包括：<br>
+            1. <strong>劇本創作計畫</strong>：鼓勵長者運用人生閱歷，撰寫個人故事，豐富生活回憶。<br>
+            2. <strong>長者友善空間</strong>：建立社區交流平台，促進長者互動討論。<br>
+            3. <strong>青銀共創計畫</strong>：結合年輕志工，共同發展創作內容，滿足社交需求，促進跨世代學習。
+          </p>
+        </div>
+      </div>
     </div>
 
   </div>
