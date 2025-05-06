@@ -9,7 +9,7 @@
       font-family: "Arial", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #eaf4fb; /* 淺藍背景 */
+      background-color: #eaf4fb;
       line-height: 1.8;
     }
 
@@ -28,11 +28,19 @@
     .intro-card,
     .iframe-card,
     .card {
-      background: linear-gradient(135deg, #ffffff, #dceefd); /* 卡片使用漸層淺藍底色 */
+      background: linear-gradient(135deg, #ffffff, #dceefd);
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 25px;
       margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover,
+    .iframe-card:hover,
+    .intro-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
     .iframe-container {
@@ -68,6 +76,14 @@
       width: 300px;
       border-radius: 12px;
       object-fit: cover;
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.8s ease;
+    }
+
+    .image-visible {
+      opacity: 1 !important;
+      transform: translateX(0) !important;
     }
 
     .flex-text {
@@ -82,10 +98,20 @@
       color: #1a3c6d;
     }
 
-    /* 強調區塊的底色（例如：行動方案）可加深一些 */
     .card.action {
-      background: linear-gradient(135deg, #c3e0f7, #a4ccef); /* 深藍漸層 */
+      background: linear-gradient(135deg, #c3e0f7, #a4ccef);
       color: #102a43;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 768px) {
@@ -103,25 +129,24 @@
   <div class="container">
     <h1>高雄市65歲以上人口熱圖分析</h1>
 
-    <div class="intro-card">
-      <h2>關於本網站</h2>
+    <div class="intro-card fade-in">
+      <h2>關於本網頁</h2>
       <p>
         高雄市正快速邁入高齡化社會，為了更有效了解在地長者的地理分布與需求，本網站透過視覺化熱圖、行動研究與社區實踐，展示65歲以上人口的密度狀況，並進一步提出促進高齡友善環境的具體方案。希望透過資料與行動的結合，打造一個更有溫度、更有連結感的城市。
       </p>
     </div>
 
-    <div class="iframe-card">
+    <div class="iframe-card fade-in">
       <div class="iframe-title">圖一：65-79歲人口熱圖</div>
       <div class="iframe-container">
         <iframe src="https://plotdb.io/v/chart/37458" allowfullscreen></iframe>
       </div>
       <p>
         65-79歲族群的地圖，可以看出人口相對密集的區域主要集中在高雄市的中南部，特別是鳳山區、三民區、小港區與前鎮區等市區與次市區。這些地區多屬早期開發的都市生活圈，生活機能完善、交通便利、社區發展成熟，是當年大批中壯年人口移入購屋落腳的首選，如今這批人在社會發展與生活穩定中邁入老年，因此出現了高度集中的高齡人口。
-        而在北部山區與原住民地區如桃源、那瑪夏等地，因人口基數小，加上年輕人口外移嚴重，導致整體65-79歲人口數量極低，地圖中以最淺的顏色呈現。
       </p>
     </div>
 
-    <div class="iframe-card">
+    <div class="iframe-card fade-in">
       <div class="iframe-title">圖二：80-99歲人口熱圖</div>
       <div class="iframe-container">
         <iframe src="https://plotdb.io/v/chart/37460" allowfullscreen></iframe>
@@ -131,10 +156,10 @@
       </p>
     </div>
 
-    <div class="card action">
+    <div class="card action fade-in">
       <h2>我的行動</h2>
       <div class="flex-row">
-        <img src="0506.webp" alt="長者交流照片">
+        <img id="elder-photo" src="0506.webp" alt="長者交流照片" />
         <div class="flex-text">
           <p>
             身為岡山區的一份子，我關注在地高齡人口，特別是：65-74歲長者：10,981人、非身心障礙或行動不便者：15,033人、行動能力稍有不便者：16,463人，其中，10,151人同時符合上述條件，具備一定行動能力，但是失智風險可能導致走失，影響安全與生活品質。
@@ -151,7 +176,31 @@
         </div>
       </div>
     </div>
-
   </div>
+
+  <script>
+    // 圖片進入時淡入動畫
+    const photo = document.getElementById("elder-photo");
+    const fadeElements = document.querySelectorAll(".fade-in");
+
+    function handleScroll() {
+      const windowBottom = window.scrollY + window.innerHeight;
+      fadeElements.forEach(el => {
+        const elTop = el.offsetTop;
+        if (windowBottom > elTop + 100) {
+          el.classList.add("visible");
+        }
+      });
+
+      // 圖片淡入控制
+      const photoTop = photo.getBoundingClientRect().top + window.scrollY;
+      if (windowBottom > photoTop + 100) {
+        photo.classList.add("image-visible");
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("load", handleScroll);
+  </script>
 </body>
 </html>
