@@ -9,7 +9,7 @@
       font-family: "Arial", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #eaf4fb; /* 淺藍背景 */
       line-height: 1.8;
     }
 
@@ -22,11 +22,13 @@
     h1 {
       text-align: center;
       margin-bottom: 30px;
-      color: #2c3e50;
+      color: #1a3c6d;
     }
 
-    .iframe-card {
-      background-color: #ffffff;
+    .intro-card,
+    .iframe-card,
+    .card {
+      background: linear-gradient(135deg, #ffffff, #dceefd); /* 卡片使用漸層淺藍底色 */
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 25px;
@@ -50,17 +52,9 @@
       border: 0;
     }
 
-    .card {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 25px;
-      margin-top: 30px;
-    }
-
-    .card h2 {
+    .card h2, .intro-card h2 {
       margin-top: 0;
-      color: #34495e;
+      color: #2c3e50;
     }
 
     .flex-row {
@@ -78,6 +72,20 @@
 
     .flex-text {
       flex: 1;
+      color: #1a2a40;
+    }
+
+    .iframe-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #1a3c6d;
+    }
+
+    /* 強調區塊的底色（例如：行動方案）可加深一些 */
+    .card.action {
+      background: linear-gradient(135deg, #c3e0f7, #a4ccef); /* 深藍漸層 */
+      color: #102a43;
     }
 
     @media (max-width: 768px) {
@@ -95,7 +103,15 @@
   <div class="container">
     <h1>高雄市65歲以上人口熱圖分析</h1>
 
+    <div class="intro-card">
+      <h2>關於本網站</h2>
+      <p>
+        高雄市正快速邁入高齡化社會，為了更有效了解在地長者的地理分布與需求，本網站透過視覺化熱圖、行動研究與社區實踐，展示65歲以上人口的密度狀況，並進一步提出促進高齡友善環境的具體方案。希望透過資料與行動的結合，打造一個更有溫度、更有連結感的城市。
+      </p>
+    </div>
+
     <div class="iframe-card">
+      <div class="iframe-title">圖一：65-79歲人口熱圖</div>
       <div class="iframe-container">
         <iframe src="https://plotdb.io/v/chart/37458" allowfullscreen></iframe>
       </div>
@@ -106,6 +122,7 @@
     </div>
 
     <div class="iframe-card">
+      <div class="iframe-title">圖二：80-99歲人口熱圖</div>
       <div class="iframe-container">
         <iframe src="https://plotdb.io/v/chart/37460" allowfullscreen></iframe>
       </div>
@@ -114,7 +131,7 @@
       </p>
     </div>
 
-    <div class="card">
+    <div class="card action">
       <h2>我的行動</h2>
       <div class="flex-row">
         <img src="0506.webp" alt="長者交流照片">
