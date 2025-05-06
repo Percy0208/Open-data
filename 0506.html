@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>高雄市高齡人口熱圖分析</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    .iframe-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #34495e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>高雄市65歲以上人口熱圖分析</h1>
+
+    <div class="iframe-container">
+      <iframe src="https://plotdb.io/v/chart/37458" allowfullscreen></iframe>
+    </div>
+
+    <div class="iframe-container">
+      <iframe src="https://plotdb.io/v/chart/37460" allowfullscreen></iframe>
+    </div>
+
+    <div class="card">
+      <h2>我的發現</h2>
+      <p>
+       這兩張圖分別呈現高雄市65-79歲與80-99歲人口在村里層級的分布狀況，透過不同色階的熱點地圖視覺化人口密度，讓我們得以清楚觀察高齡人口在地理空間上的集中與差異。從圖中可以看出，高雄市的老年人口明顯呈現出「南多北少」、「都市集中」的分布趨勢，但在兩個年齡層的分布特性中，仍存在些微差異與更深層的意涵。
+        <br><br>
+        首先觀察65-79歲族群的地圖，可以看出人口相對密集的區域主要集中在高雄市的中南部，特別是鳳山區、三民區、小港區與前鎮區等市區與次市區。這些地區多屬早期開發的都市生活圈，生活機能完善、交通便利、社區發展成熟，是當年大批中壯年人口移入購屋落腳的首選，如今這批人在社會發展與生活穩定中邁入老年，因此出現了高度集中的高齡人口。而在北部山區與原住民地區如桃源、那瑪夏等地，因人口基數小，加上年輕人口外移嚴重，導致整體65-79歲人口數量極低，地圖中以最淺的顏色呈現。
+        <br><br>
+        接著看80-99歲的熱圖，整體分布雖然與65-79歲大致相似，但可以明顯感受到「人口更為集中」的現象。也就是說，雖然這個年齡層的人數自然比65-79歲少，但他們分布更偏向某些特定區域，形成所謂的「超高齡聚落」。這些區域除了原本人口基數高之外，亦可能與生活環境、醫療資源充足度、社會支持系統、甚至社區凝聚力等長壽因素密切相關。因此，我們可以合理推測，這些80歲以上人口密集的村里，或許具備成為高齡友善社區典範的潛力，亦是政策與資源投入的優先區域。相對地，某些65-79歲人口尚可觀察到的地區，在80歲以上族群中卻幾近空白，可能代表這些區域的居民壽命較短，或者過往發展較晚、人口結構仍偏年輕。
+        <br><br>
+      65-79歲的熱圖描繪出的是「即將進入高齡社會服務需求高峰」的潛在趨勢，而80-99歲的圖則直接揭示「當前最需要照顧與支持的超高齡人口分布」。這兩張圖能幫助我們理解高雄市老化的空間結構，更能作為未來銀髮族資源規劃、長照設施佈局、健康老化政策設計的重要依據。
+      </p>
+    </div>
+  </div>
+</body>
+</html>
