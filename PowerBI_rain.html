@@ -6,23 +6,46 @@
   <title>極端降雨視覺化專案</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f3f6;
       color: #333;
+    }
+
+    /* 導覽列 */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #004578;
+      padding: 10px 20px;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #cbe4ff;
     }
 
     .container {
       max-width: 960px;
-      margin: 0 auto;
-      padding: 20px;
+      margin: 80px auto 40px auto;
+      padding: 0 20px;
     }
 
     h1 {
       text-align: center;
       color: #004578;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .iframe-container {
@@ -44,16 +67,24 @@
     }
 
     .card {
-      background-color: #ffffff;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      padding: 20px;
       margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    .card h2 {
-      color: #004578;
-      margin-top: 0;
+    .card-header {
+      background: linear-gradient(45deg, #6ba8e5, #b4d2ff);
+      color: #003660;
+      padding: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .card-content {
+      background-color: #ffffff;
+      padding: 20px;
+      display: none;
     }
 
     .scroll-hint {
@@ -65,15 +96,9 @@
     }
 
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0); 
-      }
-      40% {
-        transform: translateY(6px); 
-      }
-      60% {
-        transform: translateY(3px); 
-      }
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(6px); }
+      60% { transform: translateY(3px); }
     }
 
     img {
@@ -85,6 +110,14 @@
   </style>
 </head>
 <body>
+
+  <div class="navbar">
+    <a href="#problem">找問題</a>
+    <a href="#awareness">問題意識</a>
+    <a href="#solution">找解方</a>
+    <a href="#insights">資料洞察</a>
+  </div>
+
   <div class="container">
     <h1>極端降雨視覺化專案</h1>
     <p class="scroll-hint">請往下滑查看完整設計說明</p>
@@ -96,41 +129,61 @@
       </iframe>
     </div>
 
-    <div class="card">
-      <h2>設計思考 - 找問題階段</h2>
-      <p><strong>擴散：</strong>全台各地年初降雨差異明顯，測站紀錄方式與呈現不一致，難以整體比較。問題初步定義為：「極端降雨是否集中於特定縣市或時間？」</p>
-      <p><strong>收斂：</strong>釐清極端降雨是否具有地區與時間分布特性，並能否透過視覺化觀察潛在災害熱點。</p>
+    <!-- 找問題 -->
+    <div class="card" id="problem">
+      <div class="card-header" onclick="toggleCard(this)">設計思考 - 找問題階段</div>
+      <div class="card-content">
+        <p><strong>擴散：</strong>全台各地年初降雨差異明顯，測站紀錄方式與呈現不一致，難以整體比較。問題初步定義為：「極端降雨是否集中於特定縣市或時間？」</p>
+        <p><strong>收斂：</strong>釐清極端降雨是否具有地區與時間分布特性，並能否透過視覺化觀察潛在災害熱點。</p>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>問題意識定義</h2>
-      <p>本專案希望針對全台不同縣市測站資料，找出降雨模式，進而協助政府或防災單位了解：</p>
-      <ul>
-        <li>哪些地區容易集中降雨（可能導致淹水）</li>
-        <li>哪些時間點有突發性降雨高峰</li>
-        <li>如何優化地方預警與資源配置</li>
-      </ul>
+    <!-- 問題意識 -->
+    <div class="card" id="awareness">
+      <div class="card-header" onclick="toggleCard(this)">問題意識定義</div>
+      <div class="card-content">
+        <p>本專案希望針對全台不同縣市測站資料，找出降雨模式，進而協助政府或防災單位了解：</p>
+        <ul>
+          <li>哪些地區容易集中降雨（可能導致淹水）</li>
+          <li>哪些時間點有突發性降雨高峰</li>
+          <li>如何優化地方預警與資源配置</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>設計思考 - 找解方階段</h2>
-      <p><strong>擴散：</strong>依地區、月份與日別資料，設計多模組視覺化，搭配圖表與互動格狀圖、篩選選單等元素，強化使用者比較與探索能力。</p>
-      <p><strong>收斂：</strong>建置三頁互動式儀表板，從地理分布、月趨勢到日趨勢，協助使用者觀察極端降雨並應用於防災決策。</p>
+    <!-- 找解方 -->
+    <div class="card" id="solution">
+      <div class="card-header" onclick="toggleCard(this)">設計思考 - 找解方階段</div>
+      <div class="card-content">
+        <p><strong>擴散：</strong>依地區、月份與日別資料，設計多模組視覺化，搭配圖表與互動格狀圖、篩選選單等元素，強化使用者比較與探索能力。</p>
+        <p><strong>收斂：</strong>建置三頁互動式儀表板，從地理分布、月趨勢到日趨勢，協助使用者觀察極端降雨並應用於防災決策。</p>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>資料分析與互動設計成果</h2>
+    <!-- 資料洞察 -->
+    <div class="card" id="insights">
+      <div class="card-header" onclick="toggleCard(this)">資料分析與互動設計成果</div>
+      <div class="card-content">
+        <h3>問題一：哪幾天出現極端降雨？是否集中於特定時間與地區？</h3>
+        <p>每日降雨量以折線圖表示，累積為月趨勢圖。不同顏色代表不同縣市，使用者可透過月份篩選查看累積趨勢與差異。</p>
 
-      <h3>問題一：哪幾天出現極端降雨？是否集中於特定時間與地區？</h3>
-      <p>每日降雨量以折線圖表示，累積為月趨勢圖。不同顏色代表不同縣市，使用者可透過月份篩選查看累積趨勢與差異。</p>
+        <h3>問題二：不同縣市在空間上的降雨量差異為何？</h3>
+        <p>左圖為地圖視覺化，圓形大小與顏色代表各縣市降雨總量；右側為直條圖，可互動篩選並與地圖聯動高亮，方便比對與辨識。</p>
 
-      <h3>問題二：不同縣市在空間上的降雨量差異為何？</h3>
-      <p>左圖為地圖視覺化，圓形大小與顏色代表各縣市降雨總量；右側為直條圖，可互動篩選並與地圖聯動高亮，方便比對與辨識。</p>
+        <h3>問題三：不同測站在不同月份的降雨總量變化？</h3>
+        <p>緞帶圖呈現每個測站的月雨量變化，以顏色區分月份，下方格狀圖根據縣市分配空間，幫助快速比對各地雨量密度與總量。</p>
 
-      <h3>問題三：不同測站在不同月份的降雨總量變化？</h3>
-      <p>緞帶圖呈現每個測站的月雨量變化，以顏色區分月份，下方格狀圖根據縣市分配空間，幫助快速比對各地雨量密度與總量。</p>
-
+        <img src="4461629b-6b28-4b27-b72e-e5d25d256959.png" alt="降雨視覺化成果圖">
+      </div>
     </div>
   </div>
+
+  <script>
+    function toggleCard(header) {
+      const content = header.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
 </body>
 </html>
